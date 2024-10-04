@@ -181,7 +181,7 @@ body {
   border-radius: 10px;
 }
 
-:is(.service-card, .features-card) .title {
+:is(.service-card, .features-card,) .title {
   color: var(--st-patricks-blue);
   font-size: var(--fs-4);
   font-weight: var(--fw-700);
@@ -461,6 +461,81 @@ body {
   color: var(--white);
   background-color: var(--winter-sky);
 }
+
+
+
+
+
+/* Reward Section */
+.rewards-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rewards-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  padding: 10px;
+  width: 80%; /* Adjust the width of the container */
+}
+
+.scroll-left, .scroll-right {
+  background-color: #83951c; /* Match your color palette */
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.scroll-left {
+  left: 10px;
+}
+
+.scroll-right {
+  right: 10px;
+}
+
+.rewards-section {
+  overflow-x: auto; /* Allows horizontal scrolling */
+  white-space: nowrap; /* Prevents items from wrapping */
+  padding: 20px; /* Optional padding */
+  text-align: center;
+}
+
+.reward-item {
+  flex: 0 0 auto;
+  width: auto; /* Adjusted width for the reward item */
+  height: 400px;
+  margin-right: 20px; /* Space between items */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+}
+
+.reward-image {
+  width: auto;  /* Reduced width for the images */
+  height: auto; /* Reduced height for the images */
+  object-fit: cover; /* Maintain aspect ratio */
+  border-radius: 5px; /* Optional: round the corners of the images */
+  text-align: center;
+}
+
+
+
+
+
+
 
 
 /*-----------------------------------*\
@@ -747,8 +822,6 @@ body {
 
   .service-list { grid-template-columns: 1fr 1fr; }
 
-
-
   /**
    * FEATURES
    */
@@ -864,7 +937,6 @@ body {
    */
 
   .service-list { grid-template-columns: repeat(3, 1fr); }
-
 
 
   /**

@@ -36,13 +36,6 @@ for (let i = 0; i < navbarLinks.length; i++) {
 
 
 
-
-
-/**
- * header & go-top-btn active
- * when window scroll down to 400px
- */
-
 const header = document.querySelector("[data-header]");
 const goTopBtn = document.querySelector("[data-go-top]");
 
@@ -59,24 +52,28 @@ window.addEventListener("scroll", function () {
 
 
 
-// DINAGDAG //
 
-const scrollContainer = document.querySelector(".rewards-container");
-const scrollLeftBtn = document.querySelector(".scroll-left");
-const scrollRightBtn = document.querySelector(".scroll-right");
+
+
+
+// DINAGDAG 
+
+// const scrollContainer = document.querySelector(".rewards-container");
+// const scrollLeftBtn = document.querySelector(".scroll-left");
+// const scrollRightBtn = document.querySelector(".scroll-right");
 
 // Scroll left
-scrollLeftBtn.addEventListener("click", function () {
-  scrollContainer.scrollBy({
-    left: -200, // Adjust the scroll amount (negative for left)
-    behavior: "smooth"
-  });
-});
+// scrollLeftBtn.addEventListener("click", function () {
+//   scrollContainer.scrollBy({
+//     left: -200, // Adjust the scroll amount (negative for left)
+//    behavior: "smooth"
+//   });
+// });
 
 // Scroll right
-scrollRightBtn.addEventListener("click", function () {
-  scrollContainer.scrollBy({
-    left: 200, // Adjust the scroll amount (positive for right)
-    behavior: "smooth"
-  });
-});
+// scrollRightBtn.addEventListener("click", function () {
+//  scrollContainer.scrollBy({
+//    left: 200,  //Adjust the scroll amount (positive for right)
+//    behavior: "smooth"
+//  });
+// }); 

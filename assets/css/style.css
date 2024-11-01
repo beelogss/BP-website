@@ -2,18 +2,7 @@
 
 :root {
 
-  --st-patricks-blue: #455e14;
-  --amaranth-purple: hsla(140, 65%, 30%, 0.979); /*grd-pink*/
-  --royal-blue-dark: hsl(123, 73%, 28%);
-  --chrome-yellow: hsla(91, 100%, 84%, 0.993); /*WCCDM*/
-  --winter-sky_50: hsla(76, 87%, 53%, 0.5);
-  --purple-navy: hsl(127, 89%, 11%); /* text and bilog bilog*/
-  --ksu-purple: hsl(138, 44%, 41%);
-  --winter-sky: hsl(130, 84%, 70%);
-  --razzmatazz: hsl(128, 100%, 78%);
-  --platinum: hsl(110, 46%, 62%);
-  --black_70: hsla(0, 0%, 0%, 0.7);
-  --rajah: hsl(91, 100%, 62%);
+  --black: hsla(0, 0%, 0%, 0.7);
   --white: hsl(0, 0%, 90%);
 
   --gradient-1: linear-gradient(10deg, #455e14b4,#455e14);
@@ -39,26 +28,16 @@
   --radius-4: 4px;
   --radius-12: 12px;
 
- 
-
   --section-padding: 60px;
 
-  
 
   --transition-1: 0.15s ease;
   --transition-2: 0.35s ease;
   --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
   --cubic-out: cubic-bezier(0.33, 0.85, 0.56, 1.02);
 
-  /**
-   * shadow
-   */
-
-  --shadow: 0 5px 20px 1px hsla(220, 63%, 33%, 0.1);
 
 }
-
-
 
 
 
@@ -110,7 +89,7 @@ html {
 
 body {
   background-color: #c7dfa9;
-  color: var(--purple-navy);
+  color: #455e14;
   font-size: 1.6rem;
 }
 
@@ -118,10 +97,9 @@ body {
 
 ::-webkit-scrollbar-track { background-color: #e5eeda }
 
-::-webkit-scrollbar-thumb { background-color: #7a9b57; }
+::-webkit-scrollbar-thumb { background-color: #83951c; }
 
 ::-webkit-scrollbar-thumb:hover { background-color: #455e14; }
-
 
 
 
@@ -150,7 +128,7 @@ body {
 
 .w-100 { width: 100%; }
 
-.banner-animation { animation: waveAnim 2s linear infinite alternate; }
+.banner-animation { animation: waveAnim 5s linear infinite alternate; }
 
 @keyframes waveAnim {
   0% { transform: translate(0, 0) rotate(0); }
@@ -160,7 +138,7 @@ body {
 .section { padding-block: var(--section-padding); }
 
 .section-title {
-  color: var(--st-patricks-blue);
+  color: #455e14;
   font-size: var(--fs-3);
   margin-block-end: 60px;
   max-width: max-content;
@@ -182,14 +160,17 @@ body {
 }
 
 :is(.service-card, .features-card,) .title {
-  color: var(--st-patricks-blue);
-  font-size: var(--fs-4);
-  font-weight: var(--fw-700);
+  color: #455e14;
+  font-family: var(--ff-poppins);
+  font-weight: x-larger; 
+  font-size: var(--fs-6);
+ 
 }
 
-:is(.service-card, .features-card, .blog-card) .text { font-size: var(--fs-8); }
+:is(.service-card, .features-card) .text {
+   font-size: 16px;  text-align: justify; }
 
-.img-cover {
+   .img-cover {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -201,10 +182,12 @@ body {
 
 .header .btn { display: none; }
 
-.header {
+
+
+  .header {
   --color: var(--white);
 
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -213,11 +196,11 @@ body {
   transition: var(--transition-1);
 }
 
-.header.active {
-  --color: var(--st-patricks-blue);
 
+
+.header.active {
+  --color: #455e14;
   position: fixed;
-  background-color: var(--white);
   box-shadow: 0 2px 30px hsla(0, 0%, 0%, 0.1);
 }
 
@@ -226,7 +209,8 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 30px;
-}
+}  
+
 
 .logo {
   color: var(--color);
@@ -239,6 +223,9 @@ body {
   font-size: 32px;
   padding: 4px;
 }
+
+
+
 
 .navbar {
   background-color: var(--white);
@@ -254,6 +241,7 @@ body {
   transition: 0.25s var(--cubic-in);
 }
 
+
 .navbar.active {
   transform: translateX(280px);
   visibility: visible;
@@ -268,7 +256,7 @@ body {
 }
 
 .navbar-top .logo {
-  color: var(--st-patricks-blue);
+  color:#455e14;
   font-size: 4.2rem;
   font-weight: var(--fw-700);
 }
@@ -283,7 +271,7 @@ body {
 .navbar-item:not(:last-child) { border-bottom: 1px solid var(--platinum); }
 
 .navbar-link {
-  color: var(--space-cadet-1);
+  color: var(violet);
   font-size: var(--fs-8);
   font-weight: var(--fw-600);
   padding-block: 12px;
@@ -292,7 +280,7 @@ body {
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: var(--black_70);
+  background-color: var(--black);
   z-index: 1;
   opacity: 0;
   pointer-events: none;
@@ -303,8 +291,6 @@ body {
   opacity: 1;
   pointer-events: all;
 }
-
-
 
 
 
@@ -326,20 +312,22 @@ body {
 .hero-content { margin-block-end: 50px; }
 
 .hero-subtitle {
-  color: #bdd299;
+  color: whitesmoke;
   font-family: "Poppins";
   font-weight: bolder;
   font-size: 52px;
   margin-block-end: 20px;
+ 
 }
 
 .hero-title {
   font-family: "Poppins";
   font-weight: bold;
-  color: var(--white);
+  color: #bdd299;
   font-size: 50px;
   line-height: 1.2;
 }
+
 
 .hero-text {
   color: var(--white);
@@ -348,16 +336,13 @@ body {
 }
 
 
-
-
-
 /*-----------------------------------*\
   #ABOUT
 \*-----------------------------------*/
 
 .about-banner { 
-  margin-block-end: 10px; 
-  width:80%; height:80%;
+  margin-block-end: 20px; 
+  width:100%; height:100%;
  
 }
 
@@ -388,14 +373,12 @@ body {
 }
 
 .stats-title {
-  color: var(--st-patricks-blue);
+  color:#83951c;
   font-size: var(--fs-2);
   font-weight: var(--fw-700);
 }
 
 .stats-text { font-size: var(--fs-8); }
-
-
 
 
 
@@ -406,13 +389,15 @@ body {
 .service-list {
   display: grid;
   grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  gap: 60px;
 }
 
 .service-card {
   padding: 30px;
   box-shadow: var(--shadow);
+  border: 2px solid #83951c;
   border-radius: var(--radius-15);
+  border-radius: 10px;
   height: auto;
   min-height: 250px;
   display: flex;
@@ -457,17 +442,46 @@ body {
 
 
 
-.service-card .card-btn:is(:hover, :focus) {
-  color: var(--white);
-  background-color: var(--winter-sky);
+/*-----------------------------------*\
+  #REWARDS
+\*-----------------------------------*/
+
+
+.rewards-container {
+  display: flex;                   /* Para sa horizontal layout */
+  overflow-x: auto;               /* Para sa horizontal scrolling */
+  padding: 20px;                  /* Space around the container */
+  scroll-snap-type: x mandatory;  /* Para sa smooth scrolling */
+  border: 2px solid #455e14;      /* Border ng container */
+  border-radius: 10px;            /* Optional: rounded corners for the container */
+  background-color: #bdd299;      /* Background color ng container (optional) */
 }
+  
+  .reward-item {
+    font-family: var(--ff-poppins);
+    font-size: large;
+    font-style: italic;
+    margin-left: 5px;
+    margin-right: 5px;             /* Space between items */
+    background-color: #bdd299;      /* Background color ng item */
+    border: 2px solid #83951c;      /* Border color at width */
+    border-radius: 5px;             /* Rounded corners */
+    text-align: center;              /* Center alignment ng text */
+    overflow: visible;                /* Itago ang anumang sobrang bahagi ng image */
+    scroll-snap-align: start;       /* Para sa smooth snapping */
+  }
+  
+  .reward-item img {
+    width: 100%;                    /* Para mag-fit ang image sa width ng container */
+    height: 200px;                  /* Fixed height for the image */
+    object-fit: cover;              /* Para i-cover ang buong container nang hindi pinapabayaan ang aspect ratio */
+    border-radius: 5px;             /* Rounded corners ng image */
+    margin: 13px;                   /* Optional: space around the image */
+  }
 
 
 
-
-
-/* Reward Section */
-.rewards-wrapper {
+/* .rewards-wrapper {
   position: relative;
   display: flex;
   align-items: center;
@@ -480,11 +494,11 @@ body {
   scroll-behavior: smooth;
   white-space: nowrap;
   padding: 10px;
-  width: 80%; /* Adjust the width of the container */
+  width: 80%; 
 }
 
 .scroll-left, .scroll-right {
-  background-color: #83951c; /* Match your color palette */
+  background-color: #83951c; 
   border: none;
   color: white;
   font-size: 24px;
@@ -505,17 +519,17 @@ body {
 }
 
 .rewards-section {
-  overflow-x: auto; /* Allows horizontal scrolling */
-  white-space: nowrap; /* Prevents items from wrapping */
-  padding: 20px; /* Optional padding */
+  overflow-x: auto; 
+  white-space: nowrap; 
+  padding: 20px; 
   text-align: center;
 }
 
 .reward-item {
   flex: 0 0 auto;
-  width: auto; /* Adjusted width for the reward item */
+  width: auto; 
   height: 400px;
-  margin-right: 20px; /* Space between items */
+  margin-right: 20px; 
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -524,17 +538,12 @@ body {
 }
 
 .reward-image {
-  width: auto;  /* Reduced width for the images */
-  height: auto; /* Reduced height for the images */
-  object-fit: cover; /* Maintain aspect ratio */
-  border-radius: 5px; /* Optional: round the corners of the images */
+  width: auto;  
+  height: auto; 
+  object-fit: cover;
+  border-radius: 5px; 
   text-align: center;
-}
-
-
-
-
-
+}   */
 
 
 
@@ -588,7 +597,7 @@ body {
 .footer-top {
   background-image: url("../images/footer-bg.png"), var(--gradient-1);
   background-repeat: no-repeat;
-  background-size: auto, 200%;
+  background-size: auto, 100%;
   background-position: center, center;
   color: var(--white);
 }
@@ -678,13 +687,12 @@ body {
   position: fixed;
   bottom: 0;
   right: 15px;
-  background-color: #c7dfa9;
+  background-color: #83951c;
   color: white;
   font-size: 2rem;
   padding: 14px;
   border-radius: var(--radius-4);
   z-index: 2;
-  visibility: hidden;
   opacity: 0;
   transition: var(--transition-1);
 }
@@ -693,7 +701,7 @@ body {
   visibility: visible;
   opacity: 1;
   transform: translateY(-15px);
-}
+} 
 
 
 

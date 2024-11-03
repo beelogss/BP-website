@@ -591,6 +591,35 @@ body {
   #FOOTER
 \*-----------------------------------*/
 
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 8px;
+}
+
+.close-btn {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+
+
 .footer { font-size: var(--fs-8); }
 
 .footer a { color: inherit; }
@@ -809,7 +838,6 @@ body {
   .hero .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
     gap: 30px;
   }
 

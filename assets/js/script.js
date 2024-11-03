@@ -77,3 +77,49 @@ window.addEventListener("scroll", function () {
 //    behavior: "smooth"
 //  });
 // }); 
+
+// try code
+/*
+const termsLink = document.getElementById("terms-link");
+const termsModal = document.getElementById("terms-modal");
+const closeBtn = document.querySelector(".close-btn");
+const termsContent = document.getElementById("terms-content");
+
+termsLink.addEventListener("click", (e) => {
+  e.preventDefault(); // Prevent default link behavior
+
+  // Fetch the Terms & Conditions HTML file
+  fetch("content/terms.html")  // Update this path as necessary
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.statusText}`);
+      }
+      return response.text();
+    })
+    .then((data) => {
+      termsContent.innerHTML = data; // Insert content into the modal
+      termsModal.style.display = "flex"; // Show modal
+    })
+    .catch((error) => {
+      console.error("Error loading Terms & Conditions:", error);
+    });
+});
+
+// Close modal event handlers
+closeBtn.addEventListener("click", () => {
+  termsModal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === termsModal) {
+    termsModal.style.display = "none";
+  }
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target == termsModal) {
+    termsModal.style.display = "none";
+  }
+});
+*/
+

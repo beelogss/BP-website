@@ -115,8 +115,8 @@ body {
   background-size: 200%;
   color: var(--white);
   padding: 15px 30px;
-  font-size: var(--fs-8);
-  font-weight: var(--fw-500);
+  font-size: var(--fs-10);
+  font-weight: var(--fw-700);
   border-radius: 0 25px;
   transition: var(--transition-2);
 }
@@ -180,11 +180,8 @@ body {
 
 .header .btn { display: none; }
 
-
-
   .header {
   --color: var(--white);
-
   position: fixed;
   top: 0;
   left: 0;
@@ -212,7 +209,7 @@ body {
 
 .logo {
   color: var(--color);
-  font-family: var(--ff-source-sans-pro);
+  font-family: var(--ff-poppins);
   font-size: var(--fs-3);
 }
 
@@ -351,7 +348,6 @@ body {
    .header .btn {
     display: flex;
     align-items: center;
- 
     margin-inline-start: auto;
   }
 

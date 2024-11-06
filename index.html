@@ -39,7 +39,6 @@
     <div class="container">
       
 
-
       <div class="overlay" data-overlay></div>
 
       <a href="#">
@@ -81,8 +80,6 @@
             <a href="#footer" class="navbar-link" data-navbar-link>Contact Us</a>
           </li>
 
-          
-
         </ul>
 
       </nav>
@@ -93,13 +90,40 @@
         <span>Download Now!</span>
       </a>
 
-      <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+      <!--  <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
         <ion-icon name="menu-outline"></ion-icon>
-      </button>
+      </button> -->
+
+      <div class="header-container">
+      <header>
+        <!-- Hidden checkbox to control the menu visibility -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open Menu">
+        
+        <!-- Label that acts as the menu button -->
+        <label for="nav-toggle" class="nav-open-btn">
+          <ion-icon name="menu-outline"></ion-icon>
+        </label>
+      
+        <!-- Overlay to close menu when clicked outside -->
+        <label for="nav-toggle" class="overlay"></label>
+      
+        <!-- Navigation menu -->
+        <nav class="nav-menu">
+          <ul>
+            
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#rewards">Rewards</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#footer">Contacts</a></li>
+          </ul>
+        </nav>
+      </header>
+      
 
     </div>
   </header>
-
+</div>
 
 
   <main>
@@ -253,45 +277,28 @@
 <section class="rewards-section" id="rewards">
   <h2 class="h2 section-title underline">Our Rewards</h2>
   <div class="rewards-container">
-    <div class="reward-item">Reward 1
+    <div class="reward-item">Whiteboard Markers
       <img src="./assets/images/whiteboardmarker.jpg" alt="Reward 1" style="width: 325px; height:340px">
     </div>
 
-    <div class="reward-item">Reward 2
+    <div class="reward-item">Manila Papers
       <img src="./assets/images/manilapaper.jpg" alt="Reward 2" style="width: 325px; height:340px">
     </div>
 
-    <div class="reward-item">Reward 3
+    <div class="reward-item"> Bond Papers
       <img src="./assets/images/bondpaper.jpg" alt="Reward 3" style="width: 325px; height:340px">
     </div>
 
-    <div class="reward-item">Reward 4
-      <img src="./assets/images/cartolina.jpg" alt="Reward 4" style="width: 325px; height:340px">
-    </div>
-    
-    <div class="reward-item">Reward 5
-      <img src="./assets/images/permanentmarker.jpg" alt="Reward 5" style="width: 325px; height:340px">   
+    <div class="reward-item">Ball Pens
+    <img src="./assets/images/flexstick.jpg" alt="Reward 4" style="width: 325px; height:340px"> 
     </div>
 
-    <div class="reward-item">Reward 6
-    <img src="./assets/images/flexstick.jpg" alt="Reward 6" style="width: 325px; height:340px"> 
-    </div>
-    
-    <div class="reward-item">Reward 7
-      <img src="./assets/images/bondpaper.jpg" alt="Reward 7" style="width: 325px; height:340px">   
+
+    <div class="reward-item">Fillers
+      <img src="./assets/images/cattleya.jpg" alt="Reward 5" style="width: 325px; height:340px">   
     </div>
 
-    <div class="reward-item">Reward 8
-    <img src="./assets/images/yellowpad.jpg" alt="Reward 8" style="width: 325px; height:340px"> 
-    </div>
 
-    <div class="reward-item">Reward 9
-      <img src="./assets/images/cattleya.jpg" alt="Reward 9" style="width: 325px; height:340px">   
-    </div>
-
-    <div class="reward-item">Reward 10
-    <img src="./assets/images/folder.jpg" alt="Reward 10" style="width: 325px; height:340px"> 
-    </div>
 
   </div>
 </section>
@@ -396,7 +403,7 @@
 
                   <p class="text">
                     Users can view their contributions to reduce carbon emissions based on the bottles they have collected. 
-                     This feature also highlights the positive impact on energy consumption, the trees planted, and transportation.
+                     It also highlights the positive impact on energy consumption, the trees planted, and transportation.
                   </p>
                 </div> 
 
@@ -443,7 +450,7 @@
                   <h3 class="h3 title"> Rewards History</h3>
 
                   <p class="text">
-                    It provides a detailed record of all claimed rewards, allowing you to track progress and monitor your achievements. 
+                    It provides a detailed record of all claimed rewards, allowing you to track and monitor your progress. 
                   </p>
                 </div>
 

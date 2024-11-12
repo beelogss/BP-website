@@ -40,7 +40,10 @@
   
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
-  
+      
+      let totalBottles = 0;
+      let totalPoints = 0; 
+      
       function getStats() {
         onSnapshot(collection(db, "userPoints"), (snapshot) => {
           snapshot.docChanges().forEach((change) => {

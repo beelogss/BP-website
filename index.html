@@ -19,9 +19,61 @@
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Source+Sans+Pro:wght@600;700&display=swap"
     rel="stylesheet">
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCNBtOJqXJXiSbEZLO83DJ1oq2etkKUbI4",
+      authDomain: "bpts-34c54.firebaseapp.com",
+      projectId: "bpts-34c54",
+      storageBucket: "bpts-34c54.appspot.com",
+      messagingSenderId: "320960896346",
+      appId: "1:320960896346:web:7cb35f9324c9c2d7a7a763",
+      measurementId: "G-57G0K8Y1MN"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Function to get stats data
+    async function getStats() {
+      try {
+        // Get total users
+        const usersSnapshot = await getDocs(collection(db, "users"));
+        const totalUsers = usersSnapshot.size;
+        console.log("Total users:", totalUsers);
+        document.getElementById('total-users').innerText = totalUsers;
+
+        // Get total bottles and total points
+        const userPointsSnapshot = await getDocs(collection(db, "userPoints"));
+        let totalBottles = 0;
+        let totalPoints = 0;
+        userPointsSnapshot.forEach((doc) => {
+          console.log("Document data:", doc.data());
+          totalBottles += doc.data().bottleCount || 0;
+          totalPoints += doc.data().totalPoints || 0;
+        });
+        console.log("Total bottles:", totalBottles);
+        console.log("Total points:", totalPoints);
+        document.getElementById('total-bottles').innerText = totalBottles;
+        document.getElementById('total-points').innerText = totalPoints;
+      } catch (error) {
+        console.error("Error getting stats:", error);
+      }
+    }
+
+    // Call the function to get stats data
+    getStats();
+  </script>
 </head>
 <body id="top">
   <!-- 
@@ -115,30 +167,50 @@
       <!-- 
         - #ABOUT
       -->
-      <section class="section about" id="about">
-        <div class="container">
-          <figure class="about-banner">
-            <img src="./assets/images/BPicon.png" class="w-100 banner-animation">
-          </figure>
-          <div class="about-content">
-            <h2 class="h2 section-title underline">Our Purpose</h2>
-            <p class="about-text">
-              The BottlePoints: Bottle Collection and Reward System aims to collect recyclable bottles that can be
-              turned to points,
-              and the gathered points can be exchanged for tangible items.
-            </p>
-            <p class="about-text">
-              This system also commited in promoting environmental awareness among the students, professors, and
-              personnel through this project.
-            </p>
-            <p class="about-text">
-              Through advocating about bottle collection activities in Colegio De Montalban, we can have a positive
-              effect on the environment,
-              and also encourage others to follow. Let's help each other now, Cdmians!
-            </p>
+      <body id="top">
+        <!-- Your existing HTML content -->
+      
+        <section class="section about" id="about">
+          <div class="container">
+            <figure class="about-banner">
+              <img src="./assets/images/BPicon.png" class="w-100 banner-animation">
+            </figure>
+            <div class="about-content">
+              <h2 class="h2 section-title underline">Our Purpose</h2>
+              <p class="about-text">
+                The BottlePoints: Bottle Collection and Reward System aims to collect recyclable bottles that can be
+                turned to points,
+                and the gathered points can be exchanged for tangible items.
+              </p>
+              <p class="about-text">
+                This system also commited in promoting environmental awareness among the students, professors, and
+                personnel through this project.
+              </p>
+              <p class="about-text">
+                Through advocating about bottle collection activities in Colegio De Montalban, we can have a positive
+                effect on the environment,
+                and also encourage others to follow. Let's help each other now, Cdmians!
+              </p>
+              <ul class="stats-list">
+                <li class="stats-card">
+                  <p class="h3 stats-title" id="total-users">0</p>
+                  <p class="stats-text">Active Users</p>
+                </li>
+                <li class="stats-card">
+                  <p class="h3 stats-title" id="total-bottles">0</p>
+                  <p class="stats-text">Total Bottles Contributions</p>
+                </li>
+                <li class="stats-card">
+                  <p class="h3 stats-title" id="total-points">0</p>
+                  <p class="stats-text">Total Points Distributed</p>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      
+        <!-- Your existing HTML content -->
+      </body>
       <!-- 
         - #SERVICE
       -->

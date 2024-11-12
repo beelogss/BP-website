@@ -45,22 +45,30 @@
       const db = getFirestore(app);
   
       // Function to get stats data
+      let totalBottles = 0;
+      let totalPoints = 0;
+
       function getStats() {
-        // Listen for real-time updates on users collection
         onSnapshot(collection(db, "users"), (snapshot) => {
           const totalUsers = snapshot.size;
           console.log("Total users:", totalUsers);
           document.getElementById('total-users').innerText = totalUsers;
         });
-  
-        // Listen for real-time updates on userPoints collection
+
         onSnapshot(collection(db, "userPoints"), (snapshot) => {
-          let totalBottles = 0;
-          let totalPoints = 0;
-          snapshot.forEach((doc) => {
-            console.log("Document data:", doc.data());
-            totalBottles += doc.data().bottleCount || 0;
-            totalPoints += doc.data().totalPoints || 0;
+          snapshot.docChanges().forEach((change) => {
+            const data = change.doc.data();
+            if (change.type === "added") {
+              totalBottles += data.bottleCount || 0;
+              totalPoints += data.totalPoints || 0;
+            } else if (change.type === "modified") {
+              const oldData = change.oldIndex !== -1 ? snapshot.docs[change.oldIndex].data() : {};
+              totalBottles += (data.bottleCount || 0) - (oldData.bottleCount || 0);
+              totalPoints += (data.totalPoints || 0) - (oldData.totalPoints || 0);
+            } else if (change.type === "removed") {
+              totalBottles -= data.bottleCount || 0;
+              totalPoints -= data.totalPoints || 0;
+            }
           });
           console.log("Total bottles:", totalBottles);
           console.log("Total points:", totalPoints);

@@ -23,11 +23,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Source+Sans+Pro:wght@600;700&display=swap"
     rel="stylesheet">
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+    import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -45,19 +45,19 @@
     const db = getFirestore(app);
 
     // Function to get stats data
-    async function getStats() {
-      try {
-        // Get total users
-        const usersSnapshot = await getDocs(collection(db, "users"));
-        const totalUsers = usersSnapshot.size;
+    function getStats() {
+      // Listen for real-time updates on users collection
+      onSnapshot(collection(db, "users"), (snapshot) => {
+        const totalUsers = snapshot.size;
         console.log("Total users:", totalUsers);
         document.getElementById('total-users').innerText = totalUsers;
+      });
 
-        // Get total bottles and total points
-        const userPointsSnapshot = await getDocs(collection(db, "userPoints"));
+      // Listen for real-time updates on userPoints collection
+      onSnapshot(collection(db, "userPoints"), (snapshot) => {
         let totalBottles = 0;
         let totalPoints = 0;
-        userPointsSnapshot.forEach((doc) => {
+        snapshot.forEach((doc) => {
           console.log("Document data:", doc.data());
           totalBottles += doc.data().bottleCount || 0;
           totalPoints += doc.data().totalPoints || 0;
@@ -66,9 +66,7 @@
         console.log("Total points:", totalPoints);
         document.getElementById('total-bottles').innerText = totalBottles;
         document.getElementById('total-points').innerText = totalPoints;
-      } catch (error) {
-        console.error("Error getting stats:", error);
-      }
+      });
     }
 
     // Call the function to get stats data

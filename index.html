@@ -27,7 +27,7 @@
      <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
       import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
-  
+
       const firebaseConfig = {
         apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
         authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -37,14 +37,20 @@
         appId: process.env.REACT_APP_FIREBASE_APP_ID,
         measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
       };
-  
+
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
-      
+
       let totalBottles = 0;
-      let totalPoints = 0; 
-      
+      let totalPoints = 0;
+
       function getStats() {
+        onSnapshot(collection(db, "users"), (snapshot) => {
+          const totalUsers = snapshot.size;
+          console.log("Total users:", totalUsers);
+          document.getElementById('total-users').innerText = totalUsers;
+        });
+
         onSnapshot(collection(db, "userPoints"), (snapshot) => {
           snapshot.docChanges().forEach((change) => {
             const data = change.doc.data();
@@ -60,13 +66,15 @@
               totalPoints -= data.totalPoints || 0;
             }
           });
+          console.log("Total bottles:", totalBottles);
+          console.log("Total points:", totalPoints);
           document.getElementById('total-bottles').innerText = totalBottles;
           document.getElementById('total-points').innerText = totalPoints;
         });
       }
-  
+
       getStats();
-    </script>
+     </script>
 </head>
 <body id="top">
   <!-- 

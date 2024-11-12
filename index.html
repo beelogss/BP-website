@@ -27,34 +27,44 @@
      <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
       import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
-  
+
       const firebaseConfig = {
-        apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-        authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-        projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-        storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-        messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-        appId: process.env.REACT_APP_FIREBASE_APP_ID,
-        measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+        apiKey: import.meta.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+        authDomain: import.meta.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+        projectId: import.meta.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+        storageBucket: import.meta.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+        messagingSenderId: import.meta.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+        appId: import.meta.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+        measurementId: import.meta.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
       };
-  
+
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
-  
+
+      let totalBottles = 0;
+      let totalPoints = 0;
+
       function getStats() {
         onSnapshot(collection(db, "users"), (snapshot) => {
           const totalUsers = snapshot.size;
           console.log("Total users:", totalUsers);
           document.getElementById('total-users').innerText = totalUsers;
         });
-  
+
         onSnapshot(collection(db, "userPoints"), (snapshot) => {
-          let totalBottles = 0;
-          let totalPoints = 0;
-          snapshot.forEach((doc) => {
-            console.log("Document data:", doc.data());
-            totalBottles += doc.data().bottleCount || 0;
-            totalPoints += doc.data().totalPoints || 0;
+          snapshot.docChanges().forEach((change) => {
+            const data = change.doc.data();
+            if (change.type === "added") {
+              totalBottles += data.bottleCount || 0;
+              totalPoints += data.totalPoints || 0;
+            } else if (change.type === "modified") {
+              const oldData = change.oldIndex !== -1 ? snapshot.docs[change.oldIndex].data() : {};
+              totalBottles += (data.bottleCount || 0) - (oldData.bottleCount || 0);
+              totalPoints += (data.totalPoints || 0) - (oldData.totalPoints || 0);
+            } else if (change.type === "removed") {
+              totalBottles -= data.bottleCount || 0;
+              totalPoints -= data.totalPoints || 0;
+            }
           });
           console.log("Total bottles:", totalBottles);
           console.log("Total points:", totalPoints);
@@ -62,9 +72,9 @@
           document.getElementById('total-points').innerText = totalPoints;
         });
       }
-  
+
       getStats();
-    </script>
+     </script>
 </head>
 <body id="top">
   <!-- 

@@ -148,17 +148,37 @@
       <section class="hero" id="home">
         <div class="container">
           <div class="hero-content">
-            <p class="hero-subtitle">WELCOME, CDMIANS!</p>
-            <h2 class="h2 hero-title"> BottlePoints: <br> Collect <br> Scan<br> Reward </p>
+            <div class="hero-text-wrapper">
+              <p class="hero-subtitle">WELCOME, CDMIANS!</p>
+              <h2 class="h2 hero-title">
+                BottlePoints:
+                <span class="highlight-text">Collect</span>
+                <span class="highlight-text">Scan</span>
+                <span class="highlight-text">Reward</span>
+              </h2>
               <p class="hero-text">
-                Turn your waste into value. Recycle your bottles and <br> exchange them for points to redeem exciting
-                rewards.
+                Turn your waste into value. Recycle your bottles and 
+                exchange them for points to redeem exciting rewards.
               </p>
-              <button class="btn">Learn More</button>
+              <div class="cta-wrapper">
+                <a href="https://expo.dev/artifacts/eas/2FXzirThsSBKzLtSYaBoFE.apk" class="btn download-btn">
+                  <ion-icon name="logo-android"></ion-icon>
+                  <span>Download Now!</span>
+                </a>
+              </div>
+            </div>
           </div>
           <figure class="hero-banner">
-            <img src="./assets/images/recycling.png" width="694" height="529" loading="lazy" alt="hero-banner"
-              class="w-100 banner-animation">
+            <div class="banner-wrapper">
+              <img 
+                src="./assets/images/recycling.png" 
+                width="694" 
+                height="529" 
+                loading="lazy" 
+                alt="hero-banner"
+                class="w-100 banner-animation"
+              >
+            </div>
           </figure>
         </div>
       </section>
@@ -171,7 +191,10 @@
         <section class="section about" id="about">
           <div class="container">
             <figure class="about-banner">
-              <img src="./assets/images/BPicon.png" class="w-100 banner-animation">
+              <div class="banner-wrapper">
+                <img src="./assets/images/BPicon.png" class="w-100 banner-animation" alt="BottlePoints Icon">
+                <div class="banner-accent"></div>
+              </div>
             </figure>
             <div class="about-content">
               <h2 class="h2 section-title underline">Our Purpose</h2>
@@ -181,8 +204,7 @@
                 and the gathered points can be exchanged for tangible items.
               </p>
               <p class="about-text">
-                This system also commited in promoting environmental awareness among the students, professors, and
-                personnel through this project.
+                This system also commited in promoting environmental awareness, especially among the students.
               </p>
               <p class="about-text">
                 Through advocating about bottle collection activities in Colegio De Montalban, we can have a positive
@@ -196,7 +218,7 @@
                 </li>
                 <li class="stats-card">
                   <p class="h3 stats-title" id="total-bottles">0</p>
-                  <p class="stats-text">Total Bottles Contributions</p>
+                  <p class="stats-text">Total Bottle Contributions</p>
                 </li>
                 <li class="stats-card">
                   <p class="h3 stats-title" id="total-points">0</p>
@@ -212,6 +234,62 @@
       <!-- 
         - #SERVICE
       -->
+      <section class="section app-showcase" id="showcase">
+        <div class="container">
+          <h2 class="h2 section-title underline">App Preview</h2>
+          
+          <div class="showcase-wrapper">
+            <div class="showcase-text">
+              <h3>Experience BottlePoints on Your Phone</h3>
+              <ul class="showcase-features">
+                <li>
+                  <ion-icon name="checkmark-circle"></ion-icon>
+                  <span>Track your recycling progress</span>
+                </li>
+                <li>
+                  <ion-icon name="checkmark-circle"></ion-icon>
+                  <span>View available rewards</span>
+                </li>
+                <li>
+                  <ion-icon name="checkmark-circle"></ion-icon>
+                  <span>Check leaderboard rankings</span>
+                </li>
+                <li>
+                  <ion-icon name="checkmark-circle"></ion-icon>
+                  <span>Manage your profile</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="showcase-slider">
+              <div class="showcase-track">
+                <div class="showcase-slide">
+                  <img src="./assets/mobile-images/Home.jpg" alt="Home Screen" class="showcase-img">
+                </div>
+                <div class="showcase-slide">
+                  <img src="./assets/mobile-images/Reward.jpg" alt="Rewards Screen" class="showcase-img">
+                </div>
+                <div class="showcase-slide">
+                  <img src="./assets/mobile-images/Profile.jpg" alt="Profile Screen" class="showcase-img">
+                </div>
+                <!-- Add more slides as needed -->
+              </div>
+              
+              <div class="showcase-nav">
+                <button class="nav-btn prev" aria-label="Previous">
+                  <ion-icon name="chevron-back"></ion-icon>
+                </button>
+                <button class="nav-btn next" aria-label="Next">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 
+        - #SERVICE
+      -->
       <section class="section service" id="services">
         <div class="container">
           <h2 class="h2 section-title underline">Our Specialization</h2>
@@ -223,7 +301,7 @@
                 </div>
                 <h3 class="h3 title">COLLECT</h3>
                 <p class="text">
-                  Students will collect recyclable bottles that are only included in the system's approved list.
+                  Collect recyclable bottles that are only included in the system's approved list.
                 </p>
               </div>
             </li>
@@ -234,7 +312,7 @@
                 </div>
                 <h3 class="h3 title">SCAN</h3>
                 <p class="text">
-                  Next, visit the admin to scan your bottles. Each bottle is worth a certain number of points before
+                 Visit the designated area to scan bottles. Each bottle is worth a certain number of points before
                   redemption.
                 </p>
               </div>
@@ -246,8 +324,7 @@
                 </div>
                 <h3 class="h3 title">REWARD</h3>
                 <p class="text">
-                  Once you have earned enough points, you can redeem rewards. Each reward has a specific points
-                  requirement.
+                  Redeem rewards based on reward's specific points requirement.
                 </p>
               </div>
             </li>
@@ -260,14 +337,19 @@
       <section class="rewards-section" id="rewards">
         <h2 class="h2 section-title underline">Rewards Preview</h2>
         <div class="rewards-container">
-          <div class="reward-item"> Bond Papers
-            <img src="./assets/images/bondpaper.jpg" alt="Reward 3" style="width: 325px; height:340px">
-          </div>
-          <div class="reward-item">Ball Pens
-            <img src="./assets/images/flexstick.jpg" alt="Reward 4" style="width: 325px; height:340px">
-          </div>
-          <div class="reward-item">Fillers
-            <img src="./assets/images/cattleya.jpg" alt="Reward 5" style="width: 325px; height:340px">
+          <div class="reward-carousel">
+            <div class="reward-item">
+              <img src="./assets/images/bondpaper.jpg" alt="Bond Papers" class="reward-image">
+              <p class="reward-title">Bond Papers</p>
+            </div>
+            <div class="reward-item">
+              <img src="./assets/images/flexstick.jpg" alt="Ball Pens" class="reward-image">
+              <p class="reward-title">Ball Pens</p>
+            </div>
+            <div class="reward-item">
+              <img src="./assets/images/notebook.jpg" alt="Notebooks" class="reward-image">
+              <p class="reward-title">Notebooks</p>
+            </div>
           </div>
         </div>
       </section>
@@ -335,11 +417,9 @@
                   <ion-icon name="leaf"></ion-icon>
                 </div>
                 <div class="content">
-                  <h3 class="h3 title">Environmental Contributions </h3>
+                  <h3 class="h3 title">Environmental Impact</h3>
                   <p class="text">
-                    Users can view their contributions to reduce carbon emissions based on the bottles they have
-                    collected.
-                    It also highlights the positive impact on energy consumption, the trees planted, and transportation.
+                    Users are educated about the importance of collecting and recycling bottles, which helps reduce plastic pollution and greenhouse gas emissions.
                   </p>
                 </div>
               </div>
@@ -359,7 +439,7 @@
                   <h3 class="h3 title">The Leaderboard</h3>
                   <p class="text">
                     The top collectors are highlighted in this section.
-                    Users are ranked based on the number of bottles they return,
+                    Users are ranked based on the number of bottles they deposit,
                     fostering friendly competition among Cdmians.
                   </p>
                 </div>
@@ -373,7 +453,7 @@
                 <div class="content">
                   <h3 class="h3 title"> Rewards History</h3>
                   <p class="text">
-                    It provides a detailed record of all claimed rewards, allowing you to track and monitor your
+                    It provides a detailed record of all claimed rewards, allowing users to track and monitor
                     progress.
                   </p>
                 </div>
@@ -385,18 +465,17 @@
                   <ion-icon name="reader"></ion-icon>
                 </div>
                 <div class="content">
-                  <h3 class="h3 title">School Environmental Programs</h3>
+                  <h3 class="h3 title">Bottles List</h3>
                   <p class="text">
-                    Updates users on upcoming events related to environmental awareness, such as seminars, recycling
-                    drives, or sustainability workshops.
-                    Stay tuned for more!
-                  </p>
+                    Users can view available bottles they can deposit. This list includes various types of bottles that are accepted in the collecting process, along with their corresponding point values. 
                 </div>
               </div>
             </li>
           </ul>
         </div>
       </section>
+      <!-- Add this after the features section and before the footer -->
+     
       <!-- 
     - #FOOTER
   -->

@@ -60,7 +60,9 @@
           snapshot.forEach((doc) => {
             console.log("Document data:", doc.data());
             totalBottles += doc.data().bottleCount || 0;
-            totalPoints += doc.data().totalPoints || 0;
+            if (doc.data().totalPoints > 0) {
+              totalPoints += doc.data().totalPoints;
+            }
           });
           console.log("Total bottles:", totalBottles);
           console.log("Total points:", totalPoints);

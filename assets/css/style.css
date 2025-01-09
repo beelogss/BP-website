@@ -1996,3 +1996,27 @@ body {
     height: 500px;
   }
 }
+
+/* Add this to your CSS file */
+.responsive-bg {
+  background-image: url('../assets/images/bp-bg-bottom.png'); /* Update the path as necessary */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent repeating */
+  width: 100%; /* Full width */
+  height: 100vh; /* Full height of the viewport */
+  min-height: 500px; /* Minimum height to maintain visibility */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .responsive-bg {
+    height: 50vh; /* Adjust height for smaller screens */
+  }
+}
+
+@media (min-width: 769px) {
+  .responsive-bg {
+    height: 70vh; /* Adjust height for larger screens */
+  }
+}
